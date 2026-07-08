@@ -1,14 +1,14 @@
 # RDS instance
 
 resource "aws_db_instance" "default" {
-  allocated_storage    = 10
-  db_name              = "mydb"
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
-  username             = "foo"
-  password             = "foobarbaz"
+  allocated_storage    = var.allocated_storage 
+  db_name              = var.db_name
+  engine               = var.engine
+  engine_version       = var.engine_version
+  instance_class       = var.instance_class
+  username             = var.username
+  password             = var.password
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
-  publicly_accessible = true
+  publicly_accessible = var.publicly_accessible
 }
