@@ -12,6 +12,7 @@ resource "aws_subnet" "public1" {
   map_public_ip_on_launch = true # each public IP addr should have associate public IP addr
 }
 
+
 resource "aws_subnet" "public2" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.public_subnet2
@@ -33,9 +34,9 @@ resource "aws_internet_gateway" "gw" {
   }
 }
 
-resource "aws_eip" "nat" {
-  vpc = true
-}
+# resource "aws_eip" "nat" {
+#   vpc = true
+# }
 
 # NAT Gateway 
 # resource "aws_nat_gateway" "example" {
