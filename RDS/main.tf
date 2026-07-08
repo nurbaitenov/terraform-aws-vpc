@@ -7,8 +7,20 @@ resource "aws_db_instance" "default" {
   engine_version       = var.engine_version
   instance_class       = var.instance_class
   username             = var.username
-  password             = var.password
+  password             = random_password.password.result
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
   publicly_accessible = var.publicly_accessible
+}
+
+resource "aws_ssm_parameter" "dbpass" {
+  name  = var.db_name
+  type  = "SecureString"
+  value = random_password.password.result
+}
+
+resource "random_password" "password" {
+  length           = 24
+  special          = false
+  override_special = "!#$%&*()-_=+[]{}<>:?"
 }
