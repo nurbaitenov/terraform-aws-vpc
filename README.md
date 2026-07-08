@@ -1,7 +1,7 @@
-### Instruction how to build VPC module
+## Instruction how to build VPC module
 
-## Copy paste below code
-'''
+### Copy paste below code
+```
 module "vpc" {
     source = "../"
     region = "us-east-1"
@@ -13,9 +13,9 @@ module "vpc" {
     private_subnet2 = "10.0.102.0/24"
     private_subnet3 = "10.0.103.0/24"
 }
-'''
-## to get the output, put following code
-'''
+```
+### to get the output, put following code
+```
 output vpc_id {
     value = module.vpc.vpc_id
 }
@@ -31,5 +31,5 @@ output public_subnet2 {
 output public_subnet3 {
     value = module.vpc.public_subnet3
 }
-'''
+```
 
