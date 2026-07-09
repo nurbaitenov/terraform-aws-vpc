@@ -3,7 +3,7 @@
 ### Copy paste below code
 ```
 module "vpc" {
-    source = "../"
+    source = "nurbaitenov/vpc/aws"
     region = "us-east-1"
     cidr_block = "10.0.0.0/16"
     public_subnet1 = "10.0.1.0/24"
